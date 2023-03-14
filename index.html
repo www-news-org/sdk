@@ -1,43 +1,49 @@
-<html>
+<!--
+  ## Introduction
+
+  How to display ads in your AMP HTML files.
+--><!-- -->
+<!doctype html>
+<html ⚡ lang="en">
 <head>
+  <meta charset="utf-8">
+  <title>Sdk & Apk</title>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- ## Setup -->
 
-<script async="async" src="https://www.google.com/adsense/search/ads.js"></script>
-
-<script type="text/javascript" charset="utf-8">
-  (function(g,o){g[o]=g[o]||function(){(g[o]['q']=g[o]['q']||[]).push(
-  arguments)},g[o]['t']=1*new Date})(window,'_googCsa');
-</script>
-
+  <!-- Import the `amp-ad` component in the header. -->
+  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+  <link rel="canonical" href="index.html">
+  <meta name="viewport" content="width=device-width">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 </head>
-
 <body>
 
-<div id="afscontainer1"></div>
-<script type="text/javascript" charset="utf-8">
+  <!-- ## Basic usage -->
+  <!--
+    `amp-ad` requires `width` and `height` values. Select an ad network via the type argument.
+  -->
+  <amp-ad width="300" height="250" type="a9" data-amzn_assoc_ad_mode="auto" data-divid="amzn-assoc-ad-fe746097-f142-4f8d-8dfb-45ec747632e5" data-recomtype="async" data-adinstanceid="fe746097-f142-4f8d-8dfb-45ec747632e5">
+  </amp-ad>
 
-var pageOptions = {
-  'pubId' : 'test client ID', // Enter your own client-ID here
-  'query' : 'flowers', // User query for this page
-  'styleId': '7824176615' // Enter your own style ID here
-};
+  <!-- ## Placeholder -->
+  <!--
+    Optionally `amp-ad` supports a child element with the `placeholder` attribute. If supported by the ad network, this element is shown until the ad is available for viewing.
+  -->
+  <amp-ad width="300" height="200" type="doubleclick" data-slot="/4119129/doesnt-exist">
+    <div placeholder>
+      <b>Advertisement</b>
+    </div>
+  </amp-ad>
 
-var adblock1 = {
-  'container' : 'afscontainer1',
-  'width' : 700
-};
-
-var adblock2 = {
-  'container' : 'afscontainer2',
-  'width' : 700
-};
-
-_googCsa('ads', pageOptions, adblock1, adblock2);
-</script>
-
-<p>Search result 1</p>
-<p>Search result 2</p>
-<p>Search result 3</p>
-
-<div id="afscontainer2"></div>
-</body>
-</html>
+  <!-- ## Fallback -->
+  <!--
+    `amp-ad` supports a child element with the `fallback` attribute. If supported by the ad network, this element is shown if no ad is available for this slot.
+  -->
+  <amp-ad width="300" height="200" type="doubleclick" data-slot="/4119129/doesnt-exist">
+    <div fallback>
+      <p>Thank you for trying AMP!</p>
+      <p>You got lucky! We have no ad to show to you!</p>
+    </div>
+  </amp-ad>
+</body></html>
