@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <title>easy-amplify test page</title>
+    <link href="base.css" rel="stylesheet" />
+    <meta name=viewport content="something-else">
+    <script type="text/javascript" src="base.js"></script>
+
+    <!-- Should remove the following -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Should not remove this line -->
+
+  </head>
+  <body>
+    <header>
+      News Site
+    </header>
+    <style>
+      .style-in-body {
+        font-size: 12px;
+      }
+      .style-in-body:hover {
+        font-size: 16px;
+      }
+    </style>
+    <style>
+      #main {
+        background-image:url(/img/mountains.jpg);
+        padding: 20px;
+      }
+      .bg-1 {
+        background-image:url(./img/mountains.jpg);
+      }
+      .bg-2 {
+        background-image:url(img/mountains.jpg);
+      }
+      .bg-3 {
+        background-image:url(http://example.com/img/mountains.jpg);
+      }
+    </style>
+    <style>
+      .bg-4 {
+        background-image:url(https://example.com/img/mountains.jpg);
+      }
+      .bg-5 {
+        background-image:url(//example.com/img/mountains.jpg);
+      }
+    </style>
+    <article id="main">
+      <h1>Article Name</h1>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas tortor sapien, non tristique ligula accumsan eu.</p>
+    </article>
+
+    <!-- All disallowed attributes should be removed. -->
+    <button id="btn1" onclick="clickHandler()" data-test="test">Button!</button>
+    <p invalid-attribute="something">Another paragraph</p>
+    <div name="some-name" app-url="http://example.com">Div with attribute name</div>
+    <div my-option="option1" my-option="option2" my-option="option3">Duplicate attibutes</div>
+    <div my-option="option1" my-option="option2" my-option="option3">Duplicate attibutes</div>
+
+    <div attr-one="one" attr-two="two" attr-three="three">
+      Multiple attibutes
+      <link rel="stylesheet" href="https://web.dev///fonts.googleapis.com/css?family=Google+Sans:400,500">
+    </div>
+
+    <!-- The following disallowed tags should be updated to <div>. -->
+    <custom-tag>
+      <span>This should remain intact.</span>
+      <img src="img/mountains.jpg">
+    </custom-tag>
+    <some-nonexist-tag></some-nonexist-tag>
+
+    <!-- The following disallowed tags should be removed. -->
+    <iframe src="/iframe-page.html" width="600" height="600"></iframe>
+    </orphan-tag>
+    <!-- <div>Tags in comment</div> -->
+
+    <script>
+      console.log('This should be removed after Amplified.');
+
+      function clickHandler() {
+        console.log('click!');
+      }
+    </script>
+
+    <!-- Test zone below -->
+    <div class="custom-tag-update-meta" name="description" content="Build your business through fast and simple funding today with a business loan from LoanBuilder. Apply anywhere, anytime!"></div> <!-- uiView: -->
+
+  </body>
+</html>
